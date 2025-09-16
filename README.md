@@ -105,7 +105,7 @@ This e-commerce backend serves as a capstone project, applying all the key conce
 
 ```bash
 # Clone the repository
-git clone https://github.com/amazingdaniel06/project-nexus.git
+git clone https://github.com/amazingdaniel06/alx-project-nexus.git
 cd project-nexus
 
 # Set up virtual environment
