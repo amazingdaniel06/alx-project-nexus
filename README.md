@@ -83,7 +83,7 @@ This e-commerce backend serves as a capstone project, applying all the key conce
 
 ---
 
-## 🧾 Personal Takeaways
+## Personal Takeaways
 
 - Gained hands-on experience in full-cycle backend development
 - Understood the value of asynchronous programming for scaling applications
@@ -105,8 +105,8 @@ This e-commerce backend serves as a capstone project, applying all the key conce
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ecommerce-backend.git
-cd ecommerce-backend
+git clone https://github.com/amazingdaniel06/project-nexus.git
+cd project-nexus
 
 # Set up virtual environment
 python -m venv venv
