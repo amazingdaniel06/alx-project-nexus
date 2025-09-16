@@ -61,7 +61,7 @@ This e-commerce backend serves as a capstone project, applying all the key conce
 
 ---
 
-## 🧗 Challenges & Solutions
+##  Challenges & Solutions
 
 | Challenge | Solution |
 |----------|----------|
@@ -72,7 +72,7 @@ This e-commerce backend serves as a capstone project, applying all the key conce
 
 ---
 
-## ✅ Best Practices Followed
+## Best Practices Followed
 
 - Modular code using Django apps
 - Environment-specific settings using `.env` files
