@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # alx-project-nexus
 #  E-Commerce Backend API
 
@@ -121,3 +122,6 @@ python manage.py migrate
 # Start development server
 python manage.py runserver
 
+=======
+# alx-project-nexus
+>>>>>>> 93771b5d23de350e133ac9d8b04fc60d09129cf7
