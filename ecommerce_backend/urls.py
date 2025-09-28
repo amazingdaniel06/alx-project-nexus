@@ -20,11 +20,16 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.http import JsonResponse
+
+# Root API homepage to avoid 404
+def home(request):
+    return JsonResponse({"message": "Project Nexus API is live!"})
 
 # Swagger/OpenAPI schema view
 schema_view = get_schema_view(
     openapi.Info(
-          title="Project Nexus API",
+        title="Project Nexus API",
         default_version='v1',
         description="E-commerce Backend API",
     ),
@@ -36,11 +41,21 @@ urlpatterns = [
     # Admin
     path('admin/', admin.site.urls),
 
-    # Core app APIs
+    # Root homepage
+    path('', home, name='api-home'),
+
+    # Core app APIs (products + categories via router)
     path('api/', include('core.urls')),
 
     # JWT auth endpoints
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui')
+
+    # Future apps (users, cart, orders)
+    # path('api/', include('users.urls')),   # user registration & profile
+    # path('api/', include('cart.urls')),    # cart endpoints
+    # path('api/', include('orders.urls')),  # orders endpoints
+
+    # Swagger/OpenAPI UI
+    re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]

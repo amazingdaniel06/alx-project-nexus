@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import dj_database_url
 from pathlib import Path
 from decouple import config
-
+import os
 
 
 
@@ -29,8 +29,10 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1,localhost').split(',')
-
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS',
+    default='127.0.0.1,localhost,alx-project-nexus-pjwg.onrender.com'
+).split(',')
 
 # Application definition
 
@@ -82,11 +84,30 @@ WSGI_APPLICATION = 'ecommerce_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
+if os.environ.get("RENDER"):  # Running on Render
+ DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL')
     )  
 }
+
+else:  # Local development
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': config('DB_NAME', default='your_local_db_name'),
+            'USER': config('DB_USER', default='your_local_user'),
+            'PASSWORD': config('DB_PASSWORD', default='your_local_password'),
+            'HOST': config('DB_HOST', default='localhost'),
+            'PORT': config('DB_PORT', default='5432'),
+        }
+    }
+
+
+
+
+
+
 
 
 # Password validation
