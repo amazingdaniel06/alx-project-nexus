@@ -147,6 +147,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Django will collect all static files here
 
+# Security for Render HTTPS
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
