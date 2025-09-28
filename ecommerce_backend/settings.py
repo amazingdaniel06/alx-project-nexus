@@ -13,11 +13,7 @@ import dj_database_url
 from pathlib import Path
 from decouple import config
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')  # Add this in your Render environment
-    )
-}
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
